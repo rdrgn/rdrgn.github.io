@@ -1,3 +1,3 @@
-# rdrgn.github.io
+# remin.jp
 
 [remin.jp](https://remin.jp)
