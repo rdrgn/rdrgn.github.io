@@ -1,0 +1,22 @@
+{
+  "background_color": "#ffffff",
+  "description": "Remin's portfolio.",
+  "display": "browser",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "src": "./android-chrome-192x192.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "512x512",
+      "src": "./android-chrome-512x512.png",
+      "type": "image/png"
+    }
+  ],
+  "lang": "ja",
+  "name": "remin",
+  "short_name": "remin",
+  "start_url": ".",
+  "theme_color": "#78909c"
+}
