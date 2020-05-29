@@ -140,7 +140,7 @@ a {
     animation: $time-animation-duration ease-out ($time-animation-delay + $time-animation-duration) 1 both fade-in;
 
     svg {
-      opacity: 25%;
+      opacity: 0.25;
       width: 10vw;
       max-width: 0.1 * $length-width;
       height: auto;
