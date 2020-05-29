@@ -14,6 +14,7 @@ $color-background: #ffffff;
 $color-background-header: #e0e0e0;
 $color-background-footer: #212121;
 $color-link: #78909c;
+$color-effect: #bdbdbd;
 
 $font-family: 'Montserrat', 'M PLUS 1p', sans-serif;
 
@@ -53,53 +54,67 @@ a {
   min-height: 100vh;
 }
 
-.links {
-  position: absolute;
-  top: 1.5 * $length-text;
-  right: 1.5 * $length-text;
-  list-style-type: none;
+.header {
   display: flex;
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0.75 * $length-text $length-text;
   animation: $time-animation-duration ease-out ($time-animation-delay + $time-animation-duration) 1 both fade-in;
 
-  li {
-    display: inline-block;
-    margin-left: 1.5 * $length-text;
+  img {
+    width: 3 * $length-text;
+    height: auto;
   }
 
-  a {
-    display: inline-block;
-    position: relative;
-    color: inherit;
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
 
-    &::after {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      transform: scaleX(0);
-      transform-origin: center;
-      width: 100%;
-      height: 0.25em;
-      background: $color-background;
-      content: '';
-      transition: transform $time-transition ease-out;
+    li {
+      display: inline-block;
+      margin-left: 1.5 * $length-text;
     }
 
-    &:hover {
+    a {
+      display: inline-block;
+      position: relative;
+      color: inherit;
+
       &::after {
-        transform: scaleX(1);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: scaleX(0);
+        transform-origin: center;
+        width: 100%;
+        height: 0.25em;
+        background-color: rgba($color-text, 0.25);
+        content: '';
+        transition: transform $time-transition ease-out;
+      }
+
+      &:hover {
+        &::after {
+          transform: scaleX(1);
+        }
       }
     }
   }
 }
 
-.header {
+.hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 100%;
   height: 100vh;
   max-height: 100vw;
@@ -107,31 +122,38 @@ a {
   color: $color-text-brand;
   line-height: 1;
 
-  img {
-    width: 0.4 * $length-width;
+  .logo {
+    width: 40vw;
+    max-width: 0.4 * $length-width;
     height: auto;
     user-select: none;
     animation: $time-animation-duration ease-out $time-animation-delay 1 both fade-in;
   }
 
+  .scroll {
+    position: absolute;
+    left: 50%;
+    bottom: $length-text;
+    transform: translateX(-50%);
+    pointer-events: none;
+    user-select: none;
+    animation: $time-animation-duration ease-out ($time-animation-delay + $time-animation-duration) 1 both fade-in;
+
+    svg {
+      opacity: 25%;
+      width: 10vw;
+      max-width: 0.1 * $length-width;
+      height: auto;
+      fill: $color-text;
+    }
+  }
+
   h1 {
     margin: -0.25em 0 0.25em;
-    font-size: 0.08 * $length-width;
+    font-size: min(8vw, #{0.08 * $length-width});
     font-weight: 800;
     animation: $time-animation-duration ease-out ($time-animation-delay + 0.25 * $time-animation-duration) 1 both
       fade-in;
-  }
-}
-
-@media (max-width: $length-width) {
-  .header {
-    img {
-      width: 40vw;
-    }
-
-    h1 {
-      font-size: 8vw;
-    }
   }
 }
 
