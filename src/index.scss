@@ -29,6 +29,16 @@ $line-height: 1.75;
   }
 }
 
+@keyframes move-up-down {
+  0%,
+  100% {
+    transform: translateY(-0.25 * $length-text);
+  }
+  50% {
+    transform: translateY(0.25 * $length-text);
+  }
+}
+
 *,
 ::after,
 ::before {
@@ -145,6 +155,7 @@ a {
       width: 10vw;
       max-width: 0.1 * $length-width;
       height: auto;
+      animation: (2 * $time-animation-duration) ease-in-out infinite move-up-down;
       fill: $color-text;
     }
   }
